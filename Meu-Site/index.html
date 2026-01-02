@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft BR - Ultra PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth;}
+body {
+  font-family:'Press Start 2P', cursive;
+  color:#eee;
+  background:#111;
+  overflow-x:hidden;
+}
+
+/* FUNDO ANIMADO COM BLOCO FLUTUANTE */
+body::before {
+  content:"";
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:url('fundo.jpg') center/cover no-repeat fixed;
+  z-index:-3;
+  filter:brightness(0.6);
+}
+.particle {
+  position:absolute;
+  width:50px; height:50px;
+  background:url('https://i.imgur.com/LyP5bFJ.png') no-repeat center/contain;
+  opacity:0.5;
+  pointer-events:none;
+  animation: float linear infinite;
+}
+@keyframes float {
+  0% {transform:translateY(110vh) rotate(0deg);}
+  100% {transform:translateY(-50px) rotate(360deg);}
+}
+
+/* HEADER */
+header {
+  position:fixed; top:0; left:0; width:100%;
+  background: rgba(0,0,0,0.85);
+  box-shadow:0 3px 15px #000;
+  z-index:1000;
+}
+header h1 {
+  text-align:center; padding:20px 0;
+  color:#55ff55; font-size:2rem;
+  text-shadow:2px 2px 8px #000;
+}
+
+/* NAV */
+nav {
+  display:flex; justify-content:center;
+  background: rgba(0,0,0,0.9);
+  box-shadow:0 2px 10px #000;
+  flex-wrap:wrap;
+  z-index:1000;
+  position:sticky;
+  top:70px;
+}
+nav button {
+  border:2px solid #55ff55;
+  background: rgba(0,0,0,0.7);
+  color:#55ff55;
+  padding:12px 25px; margin:8px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s all;
+  position:relative; font-family:'Press Start 2P', cursive;
+}
+nav button:hover, nav button.active {
+  background:#55ff55; color:#000; box-shadow:0 0 25px #55ff55;
+}
+nav button::after {
+  content:"";
+  position:absolute; left:50%; bottom:-5px;
+  transform:translateX(-50%);
+  width:0; height:3px; background:#55ff55; transition:0.3s;
+}
+nav button.active::after {width:80%;}
+
+/* MAIN CARDS */
+main {
+  max-width:1100px;
+  margin:200px auto 60px;
+  padding:20px;
+}
+section {display:none; animation:fadeIn 0.7s ease forwards;}
+section.active {display:block;}
+@keyframes fadeIn {from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+
+.card {
+  background: rgba(0,0,0,0.75);
+  border-radius:20px;
+  padding:30px;
+  margin-bottom:40px;
+  box-shadow:0 0 30px #000;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.card:hover {transform: translateY(-12px) rotateX(3deg); box-shadow:0 0 50px #55ff55;}
+
+/* TITULOS */
+section h2 {color:#aaffaa; margin-bottom:20px; font-size:1.5rem; text-shadow:2px 2px 8px #000;}
+
+/* DISCORD BUTTON */
+.discord-button {
+  display:inline-block;
+  background:#5865F2; color:#fff; font-weight:bold;
+  padding:16px 32px; border-radius:30px;
+  text-decoration:none; box-shadow:0 0 25px #5865F2;
+  animation: pulse 1.8s infinite;
+  transition:0.3s;
+}
+.discord-button:hover {background:#4752c4; box-shadow:0 0 40px #5865F2;}
+@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+/* FOOTER */
+footer {
+  background: rgba(0,0,0,0.85);
+  color:#55ff55;
+  text-align:center; padding:25px;
+  font-size:0.8rem;
+  box-shadow:0 -2px 15px #000;
+}
+
+/* RESPONSIVO */
+@media(max-width:700px){
+  nav button {flex:1 1 45%; font-size:0.7rem;}
+  main {margin:220px 15px 40px;}
+  section h2 {font-size:1.2rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✨ Minecraft BR Ultra PRO ✨</h1>
+</header>
+
+<nav>
+  <button class="tab-btn active" data-target="home">🏠 Home</button>
+  <button class="tab-btn" data-target="regras">📜 Regras</button>
+  <button class="tab-btn" data-target="kit">🛡️ KIT</button>
+  <button class="tab-btn" data-target="servidor">💻 IP/Versão</button>
+  <button class="tab-btn" data-target="discord">💬 Discord</button>
+</nav>
+
+<main>
+  <section id="home" class="active">
+    <div class="card"><h2>Bem-vindo ao Servidor Minecraft BR</h2>
+    <p>Explore, construa, lute e participe das aventuras! PvP, guerras, kits especiais e clãs esperam por você.</p></div>
+  </section>
+
+  <section id="regras">
+    <div class="card"><h2>📜 Regras do Servidor</h2>
+    <p><strong>1. PvP & Guerra:</strong> PvP liberado em todo o mapa. Não use cheats ou bugs.</p>
+    <p><strong>2. Bases & Raids:</strong> Roubar e destruir bases permitido, spawn seguro.</p>
+    <p><strong>3. Construções:</strong> Construa onde quiser. Sem abusos de falhas.</p>
+    <p><strong>4. Clãs & Alianças:</strong> Podem ser quebradas a qualquer momento. Traições fazem parte.</p>
+    <p><strong>5. Proibições:</strong> Hacks, cheats, x-ray, duplicação ou discurso de ódio.</p></div>
+  </section>
+
+  <section id="kit">
+    <div class="card"><h2>🛡️ Plugin KIT</h2>
+    <p>Receba kits iniciais com espada, armadura e comida. Kits especiais liberados por rank ou eventos.</p></div>
+  </section>
+
+  <section id="servidor">
+    <div class="card"><h2>💻 IP do Servidor & Versão</h2>
+    <p><strong>IP do Server:</strong> minebrb.progamer.me</p>
+    <p><strong>Versão:</strong> 1.21.7</p></div>
+  </section>
+
+  <section id="discord">
+    <div class="card"><h2>💬 Entre no Discord</h2>
+    <p>Participe da comunidade e fique por dentro das novidades:</p>
+    <a href="https://discord.gg/HMDaxPQC" target="_blank" class="discord-button">Entrar no Discord</a></div>
+  </section>
+</main>
+
+<footer>© 2026 Minecraft BR. Todos os direitos reservados.</footer>
+
+<script>
+// TROCA DE ABAS COM SOM DE CLIQUE
+const buttons = document.querySelectorAll('.tab-btn');
+const sections = document.querySelectorAll('main section');
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audio = new Audio('https://freesound.org/data/previews/146/146730_2551463-lq.mp3');
+    audio.volume = 0.1;
+    audio.play();
+    buttons.forEach(b => b.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).classList.add('active');
+  });
+});
+
+// PARTICULAS FLUTUANTES
+for(let i=0;i<15;i++){
+  let p=document.createElement('div'); p.className='particle';
+  p.style.left=Math.random()*100+'vw';
+  p.style.top=Math.random()*100+'vh';
+  p.style.animationDuration=10+Math.random()*10+'s';
+  p.style.width=30+Math.random()*40+'px';
+  p.style.height=30+Math.random()*40+'px';
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
